@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, routes } from '@redwoodjs/router'
 
 const BasicLayout = ({ children }) => {
   const [toggle, setToggle] = useState(false)
@@ -23,7 +24,7 @@ const BasicLayout = ({ children }) => {
               <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
             </svg>
             <span className="font-semibold text-xl tracking-tight">
-              Mintbean Hackathon 6-22
+              <Link to={routes.home()}>Mintbean Hackathon</Link>
             </span>
           </div>
           <div className="block lg:hidden">
@@ -47,24 +48,18 @@ const BasicLayout = ({ children }) => {
             }`}
           >
             <div className="text-sm lg:flex-grow">
-              <a
-                href="/"
+              <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                to={routes.home()}
               >
                 Home
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
                 className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                to={routes.about()}
               >
                 About
-              </a>
-              <a
-                href="#responsive-header"
-                className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-              >
-                Blog
-              </a>
+              </Link>
             </div>
             <div>
               <a
@@ -76,7 +71,6 @@ const BasicLayout = ({ children }) => {
             </div>
           </div>
         </nav>
-        <h1>Mintbean Hackathon 6-22</h1>
       </header>
       <main>{children}</main>
     </>
